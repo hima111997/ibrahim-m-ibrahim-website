@@ -88,6 +88,31 @@ const BENEFITS = [
   },
 ];
 
+const OUTPUT_PLOTS = [
+  { file: "rmsd_1d_Backbone.png", title: "Backbone RMSD", group: "Trajectory stability" },
+  { file: "rmsd_1d_Ligand.png", title: "Ligand RMSD", group: "Trajectory stability" },
+  { file: "rmsd_2d.png", title: "2D RMSD", group: "Trajectory stability" },
+  { file: "rmsf.png", title: "RMSF", group: "Trajectory flexibility" },
+  { file: "rog.png", title: "Radius of gyration", group: "Trajectory compactness" },
+  { file: "sasa.png", title: "SASA", group: "Solvent exposure" },
+  { file: "hbonds.png", title: "Hydrogen bonds", group: "Interaction analysis" },
+  { file: "pca_scree.png", title: "PCA scree plot", group: "Principal component analysis" },
+  { file: "pca_projection_pc1_pc2.png", title: "PCA projection: PC1 / PC2", group: "Principal component analysis" },
+  { file: "pca_projection_pc1_pc3.png", title: "PCA projection: PC1 / PC3", group: "Principal component analysis" },
+  { file: "pca_projection_pc2_pc3.png", title: "PCA projection: PC2 / PC3", group: "Principal component analysis" },
+  { file: "pca_clusters_pc1_pc2.png", title: "PCA clusters: PC1 / PC2", group: "Principal component analysis" },
+  { file: "pca_clusters_pc1_pc2_pc3.png", title: "PCA clusters: PC1 / PC2 / PC3", group: "Principal component analysis" },
+  { file: "pca_histograms.png", title: "PCA histograms", group: "Principal component analysis" },
+  { file: "pca_cosine_content.png", title: "PCA cosine content", group: "Principal component analysis" },
+  { file: "FEL_1_2.png", title: "Free energy landscape: PC1 / PC2", group: "Free energy landscapes" },
+  { file: "FEL_1_3.png", title: "Free energy landscape: PC1 / PC3", group: "Free energy landscapes" },
+  { file: "FEL_2_3.png", title: "Free energy landscape: PC2 / PC3", group: "Free energy landscapes" },
+  { file: "mmgbsa_final_delta.png", title: "Final ΔG components", group: "gmx_MMPBSA" },
+  { file: "mmgbsa_decomposition_delta.png", title: "Per-residue ΔG decomposition", group: "gmx_MMPBSA" },
+  { file: "mmgbsa_decomp_per_frame.png", title: "Per-residue decomposition over time", group: "gmx_MMPBSA" },
+  { file: "mmgbsa_delta_total_time.png", title: "Total ΔG over time", group: "gmx_MMPBSA" },
+];
+
 export function MDInsight() {
   return (
     <section
@@ -261,6 +286,57 @@ export function MDInsight() {
                   {item.desc}
                 </p>
               </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Output gallery */}
+        <div className="mt-20">
+          <div className="flex items-end justify-between flex-wrap gap-3 mb-6">
+            <div>
+              <p className="text-xs uppercase tracking-wider text-emerald-700 font-medium">
+                Example output
+              </p>
+              <h3 className="mt-1 text-xl sm:text-2xl font-semibold text-slate-900">
+                Publication-ready plots, ready to explore.
+              </h3>
+            </div>
+            <span className="text-sm text-slate-500">
+              {OUTPUT_PLOTS.length} example plots · swipe or shift-scroll
+            </span>
+          </div>
+
+          <div
+            className="plot-scroll flex gap-5 overflow-x-auto snap-x snap-mandatory pb-5"
+            aria-label="Scrollable gallery of MDInsight output plots"
+          >
+            {OUTPUT_PLOTS.map((plot, idx) => (
+              <motion.figure
+                key={plot.file}
+                initial={{ opacity: 0, x: 18 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.35, delay: Math.min(idx * 0.025, 0.25) }}
+                className="group w-[min(82vw,540px)] shrink-0 snap-start overflow-hidden rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-lg hover:shadow-slate-900/10 transition-shadow"
+              >
+                <div className="aspect-[2/1] bg-slate-50 overflow-hidden">
+                  <img
+                    src={`/mdinsight/${plot.file}`}
+                    alt={`${plot.title} — MDInsight example output`}
+                    loading="lazy"
+                    draggable={false}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+                <figcaption className="px-5 py-4">
+                  <p className="text-xs uppercase tracking-wider text-emerald-700 font-medium">
+                    {plot.group}
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-slate-900">
+                    {plot.title}
+                  </p>
+                </figcaption>
+              </motion.figure>
             ))}
           </div>
         </div>

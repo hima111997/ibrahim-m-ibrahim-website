@@ -153,3 +153,20 @@
 .nice-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
+
+/* Horizontal plot gallery scrollbar */
+.plot-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(13, 148, 136, 0.45) transparent;
+}
+.plot-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.plot-scroll::-webkit-scrollbar-thumb {
+  background: rgba(13, 148, 136, 0.45);
+  border-radius: 9999px;
+}
+.plot-scroll::-webkit-scrollbar-track {
+  background: rgba(226, 232, 240, 0.6);
+  border-radius: 9999px;
+}
