@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Bun
+bun.lockb
+
+# Logs
+*.log
+dev.log
+server.log
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Prisma generated client (optional — keep if you use the db)
+# prisma/migrations/dev.db
+# prisma/migrations/dev.db-journal
+
+# Sandbox-only artifacts — do NOT commit these
+.zscripts/
+mini-services/
+examples/
+tests/
+Caddyfile
