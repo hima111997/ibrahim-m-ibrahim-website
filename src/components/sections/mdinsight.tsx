@@ -113,6 +113,8 @@ const OUTPUT_PLOTS = [
   { file: "mmgbsa_delta_total_time.png", title: "Total ΔG over time", group: "gmx_MMPBSA" },
 ];
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export function MDInsight() {
   return (
     <section
@@ -321,7 +323,7 @@ export function MDInsight() {
               >
                 <div className="aspect-[2/1] bg-slate-50 overflow-hidden">
                   <img
-                    src={`/mdinsight/${plot.file}`}
+                    src={`${BASE_PATH}/mdinsight/${plot.file}`}
                     alt={`${plot.title} — MDInsight example output`}
                     loading="lazy"
                     draggable={false}
