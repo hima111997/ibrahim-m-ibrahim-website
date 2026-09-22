@@ -142,22 +142,22 @@ export function Hero() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-xs uppercase tracking-wider text-slate-500 font-medium">
-                        At a glance
+                        Research impact
                       </p>
                       <p className="mt-1 text-sm text-slate-700">
-                        Research output &amp; teaching
+                        Citations by 2,148 documents
                       </p>
                     </div>
                     <span className="text-[11px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 font-medium border border-emerald-200/70">
-                      2026
+                      Scholar metrics
                     </span>
                   </div>
 
                   <div className="mt-6 grid grid-cols-2 gap-4">
-                    <Stat value="8+" label="Peer-reviewed publications" />
-                    <Stat value="3" label="Degrees in biophysics" />
-                    <Stat value="20+" label="Certifications &amp; courses" />
-                    <Stat value="∞" label="Lifetime MDInsight license" />
+                    <Stat value="3,233" label="Citations" />
+                    <Stat value="2,148" label="Citing documents" />
+                    <Stat value="129" label="Documents" />
+                    <Stat value="25" label="h-index" />
                   </div>
 
                   <div className="mt-6 pt-5 border-t border-slate-200/70">
